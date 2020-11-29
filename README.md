@@ -16,7 +16,7 @@ Click here to access the web app and test the model.
 
 
 ## Introduction:
-<center> <img src="allfake.png" alt="Deepfakes"> </center>
+<center> <img src="images/allfake.png" alt="Deepfakes"> </center>
 Take a second to look at the images above.  Can you tell which of these photos are real and which are deepfake image?  If you guessed that any of these photos are real...you're wrong...because they're ALL fake.  
 
 Image and video editing technology has improved so much in such a short period of time and it has become nearly impossible to tell when an image is real or a very well done facimile.  These "deepfakes" are more than just creepy.  This fake image technology has a very real potential of becoming a serious issue in the years to come.  It's fun to do Snapchat face-swaps with friends...but what about when we can create nearly undetectable images that start to influence the news and society at large.  Celebrities and world leaders already deal with issues stemming from deepfake images, but what's stopping someone from creating fake images of you?
@@ -70,7 +70,7 @@ Next, we use array_to_img from Tensorflow to check images from the dataset and m
 array_to_img(X_train[0])
 
 ```
-<img src="resized image.png" alt="Resized Image"> 
+<img src="images/resized image.png" alt="Resized Image"> 
 
 Everything looks good and after making sure that the training, testing, and validation sets have proper shapes, we'll be ready to jump into modeling.
 
@@ -93,13 +93,13 @@ print ("val_labels shape: " + str(val_y.shape))
 ```
 
 Number of Images by Class - Training Set
-<img src="Training Count.png" alt="Training Count Image">
+<img src="images/Training Count.png" alt="Training Count Image">
 
 Number of Images by Class - Test Set
-<img src="Test Count.png" alt="Test Count Image"> 
+<img src="images/Test Count.png" alt="Test Count Image"> 
 
 Number of Images by Class - Validation Set
-<img src="Val Count.png" alt="Validation Count Image"> 
+<img src="images/Val Count.png" alt="Validation Count Image"> 
 
 
 ## Modeling
@@ -145,9 +145,9 @@ history = baseline_model.fit(X_train, y_train, batch_size = 64, epochs = 25,
 evaluate_network(history, baseline_model, X_test, y_test)
 
 ```
-<img src="baseline-curves.png" alt="Validation Count Image"> 
+<img src="images/baseline-curves.png" alt="Validation Count Image"> 
 
-<img src="baseline confusion.png" alt="Validation Count Image"> 
+<img src="images/baseline confusion.png" alt="Validation Count Image"> 
 
 > Our baseline model performed admirably, but we definitely want to achieve a much higher level of accuracy for a proper deepfake detection app.  Luckily, we can do a bunch of parameter tuning in order to make this model MUCH more accurate.
 
@@ -210,7 +210,7 @@ history_2 = model_2.fit(X_train, y_train, batch_size = 16, epochs = 25,
 evaluate_network(history_2, model_2, X_test, y_test)
 ```
 
-<img src="tuned-confusion.png" alt="Tuned Confusion"> 
+<img src="images/tuned-confusion.png" alt="Tuned Confusion"> 
 
 > The accuracy of this model is much better than the baseline CNN as it has now cracked 90% with an almost equal recall.  For the purposes of this project, recall is an important metric as we'd rather have a false positive than a false negative. To make sure we're definitely getting an accurate picture of how the model is performing, we also tested it against the validation set and saw similar results in terms of accuracy and recall.  Therefore, we can make the assumption that this model is performing in a consistent manner. 
 
@@ -291,7 +291,7 @@ history_3 = model_3.fit(X_train, y_train, batch_size = 64, epochs = 25,
 evaluate_network(history_3, model_3, X_test, y_test)
 
 ```
-<img src="pretrain-confusion.png" alt="Pretrained Confusion"> 
+<img src="images/pretrain-confusion.png" alt="Pretrained Confusion"> 
 
 > The CNN using a pretrained convolutional base was much more accurate, but only after retraining the pretrained convulational base.  Without making the base trainable, the results were actually much much worse than our "home made" model.  The accuracy is great, but massive increase in training time may make this model unrealistic for future deployment.  
 Again, the accuracy and recall is similar when testing with the validation set so we are able to assume that the model is performing consistently. 
@@ -352,7 +352,7 @@ ensemble_history = ensemble_model.fit(X_train_ensemble, y_train, batch_size = 64
 evaluate_network(ensemble_history, ensemble_model, X_test_ensemble, y_test)
 
 ```
-<img src="ensemble-confusion.png" alt="Ensemble Confusion"> 
+<img src="images/ensemble-confusion.png" alt="Ensemble Confusion"> 
 
 > Using this particular ensemble, there was a 1% boost in accuracy and a slight boost in recall as well.  Given that the data needs to be reshaped in order to make this model work plus the extra training time, we don't feel like it would be worth it to use this model in the final product. 
 
@@ -377,7 +377,7 @@ plt.imshow(img_tensor[0])
 plt.show()
 
 ```
-<img src="i-activation1.png" alt="Ensemble Confusion"> 
+<img src="images/i-activation1.png" alt="Ensemble Confusion"> 
 
 > Let's check out the visual for the first layer of the model.
 
@@ -397,7 +397,7 @@ plt.matshow(first_layer_activation[0, :, :, 3], cmap = 'viridis')
 plt.show()
 
 ```
-<img src="i-activation2.png" alt="Ensemble Confusion"> 
+<img src="images/i-activation2.png" alt="Ensemble Confusion"> 
 
 > Now let's plot the visuals of several layers.
 
@@ -411,7 +411,7 @@ for i in range(32):
     ax.matshow(first_layer_activation[0, :, :, i], cmap='viridis')
 
 ```
-<img src="multi-ia.png" alt="Ensemble Confusion"> 
+<img src="images/multi-ia.png" alt="Ensemble Confusion"> 
 
 
 ### Lime
@@ -450,31 +450,31 @@ def lime_explainer_image(image_from_test_set, image_label):
 lime_explainer_image(X_test[0], y_test[0])
 
 ```
-<img src="lime1.png" alt="Lime 1"> 
+<img src="images/lime1.png" alt="Lime 1"> 
 
 ```python
 lime_explainer_image(X_test[100], y_test[0])
 
 ```
-<img src="lime2.png" alt="Lime 2"> 
+<img src="images/lime2.png" alt="Lime 2"> 
 
 ```python
 lime_explainer_image(X_test[11900], y_test[0])
 
 ```
-<img src="lime3.png" alt="Lime 3"> 
+<img src="images/lime3.png" alt="Lime 3"> 
 
 ```python
 lime_explainer_image(X_test[346], y_test[0])
 
 ```
-<img src="lime4.png" alt="Lime 4"> 
+<img src="images/lime4.png" alt="Lime 4"> 
 
 ```python
 lime_explainer_image(X_test[5426], y_test[0])
 
 ```
-<img src="lime5.png" alt="Lime 5"> 
+<img src="images/lime5.png" alt="Lime 5"> 
 
 
 > The Lime Explainer provided a really interesting bit of insight into how the model is detecting whether the image is a deepfake.  If you notice, in all the examples that we produced, Lime highlighted at least one of the eyes.  This must mean that the area surrounding the eyes is a main determining factor. 
