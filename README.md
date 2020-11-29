@@ -7,6 +7,8 @@ The contents of this repository detail an analysis of a Flatiron School capstone
 
 <h4><center><b> Access the dataset for this project from Google Drive by clicking <a href="https://drive.google.com/file/d/1b-GA8_23MGmbEBsuEluKVm90QJ1kLEtV/view?usp=sharing">here</a>.</center></b></h4>
 
+<center> <img src="images/deepfake-video.jpg" alt="Deepfakes"> </center>
+
 ## Abstract
 In recent years, deepfake technology has made huge leaps in terms of accuracy, quality, and most of all: believability.  At one time or another, we've all been fooled by a photoshopped viral image or even someone's Snapchat filter.  The abilitly to determine whether or not an image is, in fact, real is quickly becoming a necessity in a world that's becoming more and more susceptible to "questionable" information.  Recently, doctored images have made headlines and divided people in their opinions of whether real world issues were legitimate.
 
@@ -92,13 +94,13 @@ print ("val_labels shape: " + str(val_y.shape))
 
 ```
 
-Number of Images by Class - Training Set
-<img src="images/Training Count.png" alt="Training Count Image">
+<center><b>Number of Images by Class - Training Set</b></center>
+<img src="images/Train count.png" alt="Training Count Image">
 
-Number of Images by Class - Test Set
-<img src="images/Test Count.png" alt="Test Count Image"> 
+<center><b>Number of Images by Class - Test Set</b></center>
+<img src="images/Test count.png" alt="Test Count Image"> 
 
-Number of Images by Class - Validation Set
+<center><b>Number of Images by Class - Validation Set</b></center>
 <img src="images/Val Count.png" alt="Validation Count Image"> 
 
 
@@ -397,7 +399,7 @@ plt.matshow(first_layer_activation[0, :, :, 3], cmap = 'viridis')
 plt.show()
 
 ```
-<img src="images/i-activation2.png" alt="Ensemble Confusion"> 
+<img src="images/i-activaaton2.png" alt="Ensemble Confusion"> 
 
 > Now let's plot the visuals of several layers.
 
