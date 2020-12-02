@@ -1,0 +1,12 @@
+Thank you for checking out the Deepfake Image Detection App!
+
+In order to run this app from your local machine, you must first clone the 'Deepfake Detection App' folder.
+
+Next, open the folder on your local machine in your IDE of choice.  
+
+In your IDE, navigate to the deepfakeimagedetection.py file, run it, and then click/copy the link provided in your terminal. 
+
+
+That's it!  If you run into any bugs or have any suggestions, please feel free to reach out.  
+
+Thanks!
